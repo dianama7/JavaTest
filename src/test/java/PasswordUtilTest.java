@@ -4,22 +4,22 @@ import static org.junit.Assert.*;
 
 public class PasswordUtilTest {
 
-    @Test
+    @Test //test_weak
     public void weak_when_has_less_than_8_letters() {
         assertEquals(PasswordUtil.SecurityLevel.WEAK,PasswordUtil.assessPassword("1234567"));
     }
 
-    @Test
+    @Test //test_letter
     public void weak_when_has_only_letters() {
         assertEquals(PasswordUtil.SecurityLevel.WEAK,PasswordUtil.assessPassword("abcdefgh"));
     }
 
-    @Test
+    @Test //test_letters_and_numbers
     public void medium_when_has_letters_and_numbers() {
         assertEquals(PasswordUtil.SecurityLevel.MEDIUM,PasswordUtil.assessPassword("abcd1234"));
     }
 
-    @Test
+    @Test //test_numbers_and_symbols
     public void medium_when_has_letters_numbers_and_symbols() {
         assertEquals(PasswordUtil.SecurityLevel.STRONG,PasswordUtil.assessPassword("abcd123!"));
     }
